@@ -1,0 +1,110 @@
+$tabsm-width: 768px;
+$tablg-width: 992px;
+$desktop-width: 1200px;
+@mixin mobile { @media (max-width: #{$tabsm-width - 1px}) {
+  @content;
+}}
+
+@mixin tabsm { @media (min-width: #{$tabsm-width}) and (max-width: #{$tablg-width - 1px}) {
+  @content;
+}}
+
+@mixin tablg { @media (min-width: #{$tablg-width}) and (max-width: #{$desktop-width - 1px}) {
+  @content;
+}}
+
+@mixin desktop { @media (min-width: #{$desktop-width}) {
+  @content;
+}}
+
+
+.stage-cube-cont {
+    width: 50%;
+    height: 100%;
+    top: 0;
+    @include mobile {
+        width: 30%;
+        height: 30%;
+        top: -85px;
+        right: 30px;
+        .icon-cube {
+            width: 50px;
+        }
+        display: none;
+    }
+    padding-top: 18%;
+    margin-left: 0;
+    position: absolute;
+    right: 0;
+    overflow: hidden;
+}
+
+.cubespinner {
+    animation-name: spincube;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-duration: 12s;
+    transform-style: preserve-3d;
+    transform-origin: 100px 100px 0;
+    margin-left: calc(50% - 100px);
+
+    div {
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        border: 1px solid #ccc;
+        background: rgba(255, 255, 255, 0.4);
+        text-align: center;
+        font-size: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 0 20px 0px lightyellow;
+    }
+
+    .face1 {
+        transform: rotateY(1Deg) translateZ(100px);
+    }
+
+    .face2 {
+        transform: rotateY(90Deg) translateZ(100px)
+    }
+
+    .face3 {
+        transform: rotateY(90Deg) rotateX(90Deg) translateZ(100px)
+    }
+
+    .face4 {
+        transform: rotateY(179Deg) rotateZ(90Deg) translateZ(100px)
+    }
+
+    .face5 {
+        transform: rotateY(-90Deg) rotateZ(90Deg) translateZ(100px)
+    }
+
+    .face6 {
+        transform: rotateX(-90Deg) translateZ(100px)
+    }
+}
+
+@keyframes spincube {
+    from,
+    to {
+        transform: rotateX(0Deg) rotateY(0Deg) rotateZ(0Deg)
+    }
+    16% {
+        transform: rotateY(-90Deg);
+    }
+    33% {
+        transform: rotateY(-90Deg) rotateZ(90Deg)
+    }
+    50% {
+        transform: rotateY(-180Deg) rotateZ(90Deg)
+    }
+    66% {
+        transform: rotateY(-270Deg) rotateX(90Deg)
+    }
+    83% {
+        transform: rotateX(90Deg)
+    }
+}
