@@ -6,7 +6,7 @@ import Logo from './Logo'
 
 const Home = () => {
     const [letterClass, setLetterClass] = useState('text-animate')
-    const nameArray = [' N', 'h', 'a', 't',' ', 'M', 'i','n', 'h']
+    const nameArray = ['', 'N', 'h', 'a', 't',' ', 'M', 'i','n', 'h']
     const jobArray = ['w', 'e', 'b', ' ', 'd', 'e', 'v', 'e', 'l', 'o', 'p', 'e', 'r', '.']
 
     useEffect (() =>{
@@ -24,14 +24,15 @@ const Home = () => {
                     <span className={`${letterClass} _12`}>i</span>
                     <br />
                     <span className={`${letterClass} _13`}>I</span>
-                    <span className={`${letterClass} _14`}>'m</span>
+                    <span className={`${letterClass} _14`}>'</span>
+                    <span className={`${letterClass} _15`}>m</span>
                 <AnimatedLetters letterClass={letterClass}
                 strArray={nameArray}
-                inx={15} />
+                inx={16} />
                 <br />
                 <AnimatedLetters letterClass={letterClass}
                 strArray={jobArray}
-                inx={24} />
+                inx={26} />
                 </h1>
                 
                 <h2>Fronend developer: Javascript / html / css / react</h2>
